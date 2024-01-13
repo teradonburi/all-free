@@ -1,6 +1,6 @@
 # all-free
 
-all-free is UI library created by web components.
+all-free is UI library created by web components.  
 web components is web standard technology of UI.
 
 - no dependency
@@ -8,4 +8,4 @@ web components is web standard technology of UI.
   - free from complex (just exported as custom element modules, zero learning syntaxsugar cost)
   - free from reinventing the wheel (no purine body contain, grateful maintenanceability to long term)
 
-tasty like :beer:
+And, tasty like :beer:.
