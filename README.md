@@ -5,8 +5,8 @@ web components is web standard technology of UI.
 
 - no dependency
   - free from anywhere (not depend on JavaScript Framework, zero calorie to migration)
-  - free from complex (just exported as custom element modules, zero learning syntaxsugar cost)
-  - free from reinventing the wheel (no purine body contain, grateful maintenanceability to long term)
+  - free from complex (simple exported as custom element modules, zero syntaxsugar may help learning cost decrease)
+  - free from reinventing the wheel (zero purine body contained, grateful maintenanceability to long term)
 - tasty well :beer:
 
 # License
