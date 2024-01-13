@@ -3,11 +3,19 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc --noEmit && esbuild `find src \\( -name '*.ts' \\)` --platform=browser --minify --outdir=dist"
+    "build": "tsc --noEmit && esbuild `find src \\( -name '*.ts' \\)` --platform=browser --minify --outdir=dist",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.8",
+    "@storybook/addon-links": "^7.6.8",
+    "@storybook/blocks": "^7.6.8",
+    "@storybook/web-components": "^7.6.8",
+    "@storybook/web-components-vite": "^7.6.8",
     "bun-types": "latest",
-    "esbuild": "^0.19.11"
+    "esbuild": "^0.19.11",
+    "storybook": "^7.6.8"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
