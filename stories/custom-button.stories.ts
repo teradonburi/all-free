@@ -1,33 +1,40 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
-import { CustomButton } from '../src/components/custom-button';
+import '../src/components/custom-button';
+import type CustomButton from '../src/components/custom-button';
 
-if (!customElements.get('custom-button')) {
-  customElements.define('custom-button', CustomButton);
-}
+type Element = CustomButton & { children: any };
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
   title: 'Example/Button',
   tags: ['autodocs'],
-  render: (args) => `<custom-button text="${args.text}"></custom-button>`,
+  render: (args) => `<custom-button ${args.disabled ? 'disabled' : ''}>${args.children}</custom-button>`,
   argTypes: {
-    text: {
+    disabled: {
+      description: 'The disable flag of button',
+      type: { name: 'boolean', required: false },
+    },
+    children: {
       description: 'The text to display on the button',
       type: { name: 'string', required: true },
-      defaultValue: 'Click Me',
       control: {
         type: 'text',
       },
     },
   },
-} satisfies Meta<CustomButton>;
+  args: {
+    disabled: false,
+    children: 'my button'
+  },
+} satisfies Meta<Element>;
 
 export default meta;
-type Story = StoryObj<CustomButton>;
+type Story = StoryObj<Element>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    text: 'my button'
+    disabled: false,
+    children: 'my button'
   },
 };

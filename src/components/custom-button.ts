@@ -1,24 +1,25 @@
 // custom-button.ts
 
+const elementName = 'custom-button';
+
 class CustomButton extends HTMLElement {
-  text: string = '';
+  disabled: boolean = false;
 
   constructor() {
     super();
-
     this.attachShadow({ mode: 'open' });
-    this.render();
+    // this.render();
   }
 
   static get observedAttributes() {
-    return ['text'];
+    return ['disabled'];
   }
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
     if (oldValue !== newValue) {
       switch (name) {
-        case 'text':
-          this.text = newValue || '';
+        case 'disabled':
+          this.disabled = this.hasAttribute('disabled');
           break;
       }
       this.render();
@@ -51,12 +52,12 @@ class CustomButton extends HTMLElement {
           cursor: not-allowed;
         }
       </style>
-      <button>${args?.text}</button>
+      <button ${args.disabled ? 'disabled' : ''}><slot /></button>
     `
   }
 
   public static renderSSR(document: Document) {
-    const elements = document.querySelectorAll('custom-button')
+    const elements = document.querySelectorAll(elementName)
   
     for (const element of elements) {
       const attributes = element.attributes
@@ -83,8 +84,8 @@ class CustomButton extends HTMLElement {
   }
 }
 
-if (!customElements.get('custom-button')) {
-  customElements.define('custom-button', CustomButton);
+if (!customElements.get(elementName)) {
+  customElements.define(elementName, CustomButton);
 }
 
-export { CustomButton };
+export default CustomButton;
