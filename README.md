@@ -1,15 +1,11 @@
 # all-free
 
-To install dependencies:
+all-free is UI library created by web components.
+web components is web standard technology of UI.
 
-```bash
-bun install
-```
+- no dependency
+  - free from anywhere (not depend on JavaScript Framework, zero calorie to migration)
+  - free from complex (just exported as custom element modules, zero learning syntaxsugar cost)
+  - free from reinventing the wheel (no purine body contain, grateful maintenanceability to long term)
 
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.0.19. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+tasty like :beer:
