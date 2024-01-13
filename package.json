@@ -2,10 +2,17 @@
   "name": "all-free",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && esbuild `find src \\( -name '*.ts' \\)` --platform=browser --minify --outdir=dist"
+  },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "esbuild": "^0.19.11"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "bin": {
+    "all-free": "dist/index.js"
   }
 }
