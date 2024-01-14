@@ -4,11 +4,12 @@ const elementName = 'custom-button';
 
 class CustomButton extends HTMLElement {
   disabled: boolean = false;
+  custom_click = this.onclick
 
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    // this.render();
+    this.render();
   }
 
   static get observedAttributes() {
@@ -27,8 +28,15 @@ class CustomButton extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render();
-    this.addEventListener('click', this.handleClick.bind(this));
+    if (this.custom_click) {
+      this.addEventListener('click', this.custom_click);
+    }
+  }
+
+  disconnectedCallback() {
+    if (this.custom_click) {
+      this.removeEventListener('click', this.custom_click);
+    }
   }
 
   private render() {
@@ -76,11 +84,6 @@ class CustomButton extends HTMLElement {
     }
   
     return document.documentElement.outerHTML
-  }
-
-  private handleClick() {
-    // Handle button click event
-    console.log('Button Clicked!');
   }
 }
 

@@ -6,7 +6,7 @@ type Element = CustomButton & { children: any };
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
-  title: 'Example/Button',
+  title: 'Example/custom-button',
   tags: ['autodocs'],
   render: (args) => `<custom-button ${args.disabled ? 'disabled' : ''}>${args.children}</custom-button>`,
   argTypes: {
